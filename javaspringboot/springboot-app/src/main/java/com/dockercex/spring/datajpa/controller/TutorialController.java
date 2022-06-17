@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dockercex.spring.datajpa.model.Tutorial;
 import com.dockercex.spring.datajpa.repository.TutorialRepository;
 
-@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api")
 public class TutorialController {
@@ -29,7 +28,7 @@ public class TutorialController {
 	@Autowired
 	TutorialRepository tutorialRepository;
 
-	@GetMapping("/tutorials")
+	@GetMapping("/tutoriale")
 	public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
 		try {
 			List<Tutorial> tutorials = new ArrayList<Tutorial>();
@@ -49,7 +48,7 @@ public class TutorialController {
 		}
 	}
 
-	@GetMapping("/tutorials/{id}")
+	@GetMapping("/tutoriale/{id}")
 	public ResponseEntity<Tutorial> getTutorialById(@PathVariable("id") long id) {
 		Optional<Tutorial> tutorialData = tutorialRepository.findById(id);
 
@@ -60,7 +59,7 @@ public class TutorialController {
 		}
 	}
 
-	@PostMapping("/tutorials")
+	@PostMapping("/tutoriale")
 	public ResponseEntity<Tutorial> createTutorial(@RequestBody Tutorial tutorial) {
 		try {
 			Tutorial _tutorial = tutorialRepository
@@ -71,7 +70,7 @@ public class TutorialController {
 		}
 	}
 
-	@PutMapping("/tutorials/{id}")
+	@PutMapping("/tutoriale/{id}")
 	public ResponseEntity<Tutorial> updateTutorial(@PathVariable("id") long id, @RequestBody Tutorial tutorial) {
 		Optional<Tutorial> tutorialData = tutorialRepository.findById(id);
 
@@ -86,7 +85,7 @@ public class TutorialController {
 		}
 	}
 
-	@DeleteMapping("/tutorials/{id}")
+	@DeleteMapping("/tutoriale/{id}")
 	public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") long id) {
 		try {
 			tutorialRepository.deleteById(id);
@@ -96,7 +95,7 @@ public class TutorialController {
 		}
 	}
 
-	@DeleteMapping("/tutorials")
+	@DeleteMapping("/tutoriale")
 	public ResponseEntity<HttpStatus> deleteAllTutorials() {
 		try {
 			tutorialRepository.deleteAll();
@@ -107,7 +106,7 @@ public class TutorialController {
 
 	}
 
-	@GetMapping("/tutorials/published")
+	@GetMapping("/tutoriale/publicate")
 	public ResponseEntity<List<Tutorial>> findByPublished() {
 		try {
 			List<Tutorial> tutorials = tutorialRepository.findByPublished(true);
