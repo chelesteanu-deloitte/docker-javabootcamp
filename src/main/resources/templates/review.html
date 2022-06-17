@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Formular feedback</title>
+  <link rel="stylesheet" th:href="@{style.css}">
+</head>
+<body>
+<div class="logo">
+  <img class="logo" th:src="@{header.png}" alt="Nice header!" />
+</div>
+<div class="body-review">
+  <form action="#" th:action="@{/submit}" method="post" th:object="${review}">
+    <h1>Formular feedback</h1>
+    <label>Nume:</label>
+    <input type="text" th:field="*{name}" th:value="${review.name}"/><br/><br/><br/>
+
+    <label>Nivelul de teorie:  </label>
+    <select th:field="*{theoryLevel}">
+      <option th:each="p : ${theoryLevels}" th:value="${p}" th:text="${p}" />
+    </select><br/><br/><br/>
+
+    <label>Nivelul de intelegere a presentarii:  </label>
+    <select th:field="*{understandingScore}">
+      <option th:each="p : ${understandingScores}" th:value="${p}" th:text="${p}" />
+    </select><br/><br/><br/>
+
+    <label>Cum ti s-a parut modul de presentare:  </label>
+    <select th:field="*{presentationModel}">
+      <option th:each="p : ${presentationModels}" th:value="${p}" th:text="${p}" />
+    </select><br/><br/><br/>
+    <button class="button" type="submit">Trimite</button>
+  </form>
+</div>
+</body>
+</html>
