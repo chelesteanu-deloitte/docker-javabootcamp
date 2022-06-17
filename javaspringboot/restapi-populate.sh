@@ -1,0 +1,3 @@
+curl -X POST http://localhost:6868/api/tutoriale -H 'Content-Type: application/json' -d '{"title":"Tutorial springboot","description":"Plictisitor", "published":true}' &&
+curl -X POST http://localhost:6868/api/tutoriale -H 'Content-Type: application/json' -d '{"title":"Tutorial docker","description":"Plictisitor", "published":true}' &&
+curl -X POST http://localhost:6868/api/tutoriale -H 'Content-Type: application/json' -d '{"title":"Tutorial kubernetes","description":"Plictisitor", "published":false}'
